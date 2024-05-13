@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "blogs",
+  "info": {
+    "singularName": "blog",
+    "pluralName": "blogs",
+    "displayName": "blog",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "youtubeLink": {
+      "type": "string"
+    },
+    "englishText": {
+      "type": "richtext"
+    },
+    "hindiText": {
+      "type": "richtext"
+    },
+    "englishTitle": {
+      "type": "string"
+    },
+    "hindiTitle": {
+      "type": "string"
+    },
+    "englishDescription": {
+      "type": "string"
+    },
+    "hindiDescription": {
+      "type": "string"
+    }
+  }
+}
