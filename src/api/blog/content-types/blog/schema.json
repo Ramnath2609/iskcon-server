@@ -12,26 +12,33 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "youtubeLink": {
-      "type": "string"
+    "engTitle": {
+      "type": "string",
+      "required": false
     },
-    "englishText": {
-      "type": "richtext"
+    "engDescription": {
+      "type": "richtext",
+      "required": false
     },
-    "hindiText": {
-      "type": "richtext"
-    },
-    "englishTitle": {
-      "type": "string"
+    "engContent": {
+      "type": "richtext",
+      "required": false
     },
     "hindiTitle": {
-      "type": "string"
-    },
-    "englishDescription": {
-      "type": "string"
+      "type": "string",
+      "required": false
     },
     "hindiDescription": {
-      "type": "string"
+      "type": "richtext",
+      "required": false
+    },
+    "hindiContent": {
+      "type": "richtext",
+      "required": false
+    },
+    "youtubeLink": {
+      "type": "string",
+      "required": false
     }
   }
 }

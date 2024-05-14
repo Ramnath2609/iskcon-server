@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "image_categories",
+  "info": {
+    "singularName": "image-category",
+    "pluralName": "image-categories",
+    "displayName": "imageCategory"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}

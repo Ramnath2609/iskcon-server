@@ -800,19 +800,116 @@ export interface ApiBlogBlog extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    youtubeLink: Attribute.String;
-    englishText: Attribute.RichText;
-    hindiText: Attribute.RichText;
-    englishTitle: Attribute.String;
+    engTitle: Attribute.String;
+    engDescription: Attribute.RichText;
+    engContent: Attribute.RichText;
     hindiTitle: Attribute.String;
-    englishDescription: Attribute.String;
-    hindiDescription: Attribute.String;
+    hindiDescription: Attribute.RichText;
+    hindiContent: Attribute.RichText;
+    youtubeLink: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<'api::blog.blog', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::blog.blog', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiEventEvent extends Schema.CollectionType {
+  collectionName: 'events';
+  info: {
+    singularName: 'event';
+    pluralName: 'events';
+    displayName: 'event';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    location: Attribute.String;
+    date: Attribute.Date;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::event.event',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::event.event',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiImageImage extends Schema.CollectionType {
+  collectionName: 'images';
+  info: {
+    singularName: 'image';
+    pluralName: 'images';
+    displayName: 'image';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    asset: Attribute.Media;
+    image_category: Attribute.Relation<
+      'api::image.image',
+      'oneToOne',
+      'api::image-category.image-category'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::image.image',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::image.image',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiImageCategoryImageCategory extends Schema.CollectionType {
+  collectionName: 'image_categories';
+  info: {
+    singularName: 'image-category';
+    pluralName: 'image-categories';
+    displayName: 'imageCategory';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::image-category.image-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::image-category.image-category',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
   };
 }
@@ -866,6 +963,9 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::blog.blog': ApiBlogBlog;
+      'api::event.event': ApiEventEvent;
+      'api::image.image': ApiImageImage;
+      'api::image-category.image-category': ApiImageCategoryImageCategory;
       'api::quote.quote': ApiQuoteQuote;
     }
   }
